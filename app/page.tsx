@@ -40,8 +40,9 @@ export default function HomePage() {
             home.
           </h1>
           <p className="font-body text-lg text-ink-light leading-relaxed mb-10 max-w-md">
-            Shelfie is your cozy digital bookshelf. Track what you&apos;ve read,
-            write honest reviews, and curate a collection that&apos;s entirely yours.
+            Shelfie is your cozy digital bookshelf. Track what
+            you&apos;ve read, discover what friends love, and curate
+            a reading life that&apos;s entirely yours.
           </p>
           <Link
             href="/auth?tab=signup"
@@ -79,10 +80,10 @@ export default function HomePage() {
       <section className="relative z-10 bg-ink/5 backdrop-blur-sm border-t border-parchment-300">
         <div className="max-w-6xl mx-auto px-8 py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { icon: BookOpen, label: "Track every book", desc: "Log books you've read, are reading, or want to read." },
-            { icon: Star,     label: "Honest reviews",   desc: "Write personal reviews and 5-star ratings for each title." },
-            { icon: Bookmark, label: "Recommend picks",  desc: "Mark books you'd recommend and build a curated list." },
-            { icon: Users,    label: "Your shelf only",  desc: "Private, personal, and perfectly yours — no noise." },
+            { icon: BookOpen,   label: "Track every book",       desc: "Log books you've read, are reading, or want to read. Write reviews and rate as you go." },
+            { icon: Star,       label: "Friends & reactions",     desc: "Add friends, browse their shelves, and react to the books they love." },
+            { icon: Bookmark,   label: "Recommendations",         desc: "See every book your friends recommend in one place — no shelf hopping required." },
+            { icon: Users,      label: "Stats & goals",           desc: "Set yearly reading goals and track your progress with charts and highlights." },
           ].map(({ icon: Icon, label, desc }) => (
             <div key={label} className="flex flex-col gap-3">
               <div className="w-10 h-10 rounded-xl bg-mahogany/10 flex items-center justify-center">
