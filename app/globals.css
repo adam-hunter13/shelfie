@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --parchment:   #fdf8f0;
+  --parchment-2: #f2dbb5;
+  --ink:         #1c1209;
+  --ink-light:   #3d2b14;
+  --moss:        #4a5e3a;
+  --mahogany:    #7c3626;
+  --wood:        #7c5c38;
+}
+
+/* Subtle paper texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Shelf wood divider */
+.shelf-divider {
+  background: linear-gradient(180deg, #9b7040 0%, #7c5c38 40%, #5c3d1e 100%);
+  box-shadow: 0 4px 12px rgba(92, 61, 30, 0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+/* Book spine hover lift */
+.book-card {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+.book-card:hover { transform: translateY(-6px) rotate(-1deg); }
+
+/* Star rating */
+.star-filled { color: #8b5e18; }
+.star-empty  { color: #8b6820; }
+
+/* Dark mode star */
+.dark .star-empty { color: #bfa080; }
+
+/* Smooth scrollbar */
+* { scrollbar-width: thin; scrollbar-color: #8b5e18 #f2dbb5; }
+*::-webkit-scrollbar       { width: 6px; }
+*::-webkit-scrollbar-track { background: #f2dbb5; }
+*::-webkit-scrollbar-thumb { background: #8b5e18; border-radius: 3px; }
+
+.dark * { scrollbar-color: #8b5e18 #241c16; }
+.dark *::-webkit-scrollbar-track { background: #241c16; }
+
+/* Animation stagger delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.30s; }
+
+/* Dark mode transitions */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* But not transforms (breaks book-card hover) */
+.book-card, .book-card * {
+  transition-property: transform, box-shadow, background-color, border-color, color;
+}
